@@ -3,18 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Pet - Login</title>
+    <title>Sistema de Processos - Little Pet</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <img src="logo.png.png" alt="Logo Little Pet">
-        <form action="telaprincipal.html">
-            <br><input type="email" placeholder="Email"><br>
-            <br><input type="password" placeholder="Senha"><br>
-           <br> <button type="submit">Entrar</button><br>
-        </form>
-        <p>Primeiro acesso? <a href="cadastro.html">Cadastre-se</a></p>
+        <header>
+            <img src="logo.png.png" alt="Logo Little Pet" class="logo">
+            <h1>Sistema de Processos</h1>
+            <p class="subtitle">Gerenciamento simples e eficiente</p>
+        </header>
+
+        <!-- Search and Add Section -->
+        <div class="controls">
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Pesquisar processos..." class="search-input">
+                <button id="searchBtn" class="btn btn-search">🔍 Pesquisar</button>
+            </div>
+            <button id="addProcessBtn" class="btn btn-primary">➕ Novo Processo</button>
+        </div>
+
+        <!-- Process List -->
+        <div id="processList" class="process-list">
+            <div class="loading">Carregando processos...</div>
+        </div>
+
+        <!-- Add/Edit Process Modal -->
+        <div id="processModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Novo Processo</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <form id="processForm" class="process-form">
+                    <div class="form-group">
+                        <label for="numero">Número do Processo *</label>
+                        <input type="text" id="numero" name="numero" required placeholder="Ex: 2024.001">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome do Interessado *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Nome completo">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@exemplo.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Processo</label>
+                            <select id="tipo" name="tipo">
+                                <option value="">Selecionar tipo</option>
+                                <option value="Adoção">Adoção</option>
+                                <option value="Cadastro">Cadastro</option>
+                                <option value="Acompanhamento">Acompanhamento</option>
+                                <option value="Doação">Doação</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="Em Andamento">Em Andamento</option>
+                                <option value="Concluído">Concluído</option>
+                                <option value="Pendente">Pendente</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes" rows="3" placeholder="Observações adicionais..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="saveBtn">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Sistema de Processos - Little Pet © 2024</p>
+        </footer>
     </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
